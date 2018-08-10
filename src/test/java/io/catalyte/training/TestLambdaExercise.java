@@ -1,48 +1,101 @@
 package io.catalyte.training;
 
-import org.junit.Before;
-import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
-public class TestLambdaExercise{
+import org.junit.Before;
+import org.junit.Test;
 
-    LambdaExercise exercise;
+public class TestLambdaExercise {
 
-    @Before
-    public void init(){
+	LambdaExercise exercise;
 
-        exercise = new LambdaExercise();
+	@Before
+	public void init() {
 
-    }
+		exercise = new LambdaExercise();
 
-    @Test
-    public void testSortByLetterE(){
+	}
 
-        String[] words = { "hi", "hello", "hola", "bye", "goodbye", "adios" };
+	@Test
+	public void testDisplayList() {
 
-        String[] expected = {"hello", "bye", "goodbye","hi", "hola", "adios" };
+		ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+		
+		ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+		
+		PrintStream originalOut = System.out;
+		
+		PrintStream originalErr = System.err;
 
-        String[] result = exercise.sortByLetterE(words);
+		System.setOut(new PrintStream(outContent));
+		
+		System.setErr(new PrintStream(errContent));
+		
+		List<String> words = new ArrayList<>(Arrays.asList("hi", "hello", "hola", "bye", "goodbye", "adios"));
+		
+		exercise.displayList(words);
+		
+		assertEquals("hi\nhello\nhola\nbye\ngoodbye\nadios\n", outContent.toString());
 
-        assertTrue("Array not in expected order. Expected: " + Arrays.asList(expected) + " Got:" + Arrays.asList(result) + ".", Arrays.equals(expected, result));
+		System.setOut(originalOut);
+		
+		System.setErr(originalErr);
 
-    }
-    
-    
-    @Test
-    public void testCapitalizeAllWords(){
+	}
 
-    	ArrayList<String> words = new ArrayList<>(Arrays.asList( "hi", "hello", "hola", "bye", "goodbye", "adios" ));
+	@Test
+	public void testSortByLetterE() {
 
-    	ArrayList<String> expected = new ArrayList<>(Arrays.asList( "Hi", "Hello", "Hola", "Bye", "Goodbye", "Adios" ));
+		String[] words = { "hi", "hello", "hola", "bye", "goodbye", "adios" };
 
-    	ArrayList<String> result = exercise.capitalizeAllWords(words);
+		String[] expected = { "hello", "bye", "goodbye", "hi", "hola", "adios" };
 
-        assertTrue("Array not capitalized. Expected: " + Arrays.asList(expected) + " Got:" + Arrays.asList(result) + ".", Arrays.equals(expected.toArray(), result.toArray()));
+		String[] result = exercise.sortByLetterE(words);
 
-    }
+		assertTrue("Array not in expected order. Expected: " + Arrays.asList(expected) + " Got:" + Arrays.asList(result)
+				+ ".", Arrays.equals(expected, result));
+
+	}
+
+	@Test
+	public void testCapitalizeAllWords() {
+
+		ArrayList<String> words = new ArrayList<>(Arrays.asList("hi", "hello", "hola", "bye", "goodbye", "adios"));
+
+		ArrayList<String> expected = new ArrayList<>(Arrays.asList("Hi", "Hello", "Hola", "Bye", "Goodbye", "Adios"));
+
+		ArrayList<String> result = exercise.capitalizeAllWords(words);
+
+		assertTrue(
+				"Array not capitalized. Expected: " + Arrays.asList(expected) + " Got:" + Arrays.asList(result) + ".",
+				Arrays.equals(expected.toArray(), result.toArray()));
+
+	}
+
+	@Test
+	public void testSummarizeWeatherData() {
+
+		ArrayList<Integer> temps = new ArrayList<>(Arrays.asList(32, 41, 28, 37, 36, 40, 18));
+
+		HashMap<String, Integer> expected = new HashMap<>();
+
+		expected.put("Maximum", 41);
+
+		expected.put("Minimum", 18);
+
+		HashMap<String, Integer> result = exercise.summarizeWeatherData(temps);
+
+		assertTrue("Wrong summary information. Expected: Maximum=41, Minimum=18. Got: " + result.entrySet() + ".",
+				expected.equals(result));
+
+	}
 
 }

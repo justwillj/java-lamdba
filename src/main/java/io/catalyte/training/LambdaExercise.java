@@ -2,8 +2,20 @@ package io.catalyte.training;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 public class LambdaExercise{
+	
+	/**
+	 * Takes a List of strings and displays each element's value to the console
+	 * 
+	 * @param s the List of Strings to be printed out to the console.
+	 */
+	public void displayList(List<String> words){
+		
+		
+	}
 
     /**
      * Sorts an array of Strings so that words that contain the letter 'e' appear first
@@ -30,6 +42,19 @@ public class LambdaExercise{
     	
     	return null;
     	
+    }
+    
+    /**
+     * Takes a list of temperatures as ints and returns the minimum and maximum values. 
+     *
+     * @param t the List of temperatures to be summarized.
+     *
+     * @return a HashMap with the minimum and maximum temperatures.
+     */   
+    public HashMap<String, Integer> summarizeWeatherData(List<Integer> t){
+    
+    	return null;
+    
     }
 
 }
