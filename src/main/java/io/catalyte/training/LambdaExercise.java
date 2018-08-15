@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class LambdaExercise{
 	
@@ -16,6 +19,45 @@ public class LambdaExercise{
 		
 		
 	}
+	
+	
+	/**
+	 * Accepts a list of integers and displays the number in the console if it is an even number that is below 100.
+	 * 
+	 * @param s the List of Strings to be printed out to the console.
+	 */
+	public void displayIntegers(List<Integer> numbers){
+		
+		
+	}
+	
+	/**
+	 * Sums the total of all elements of the given array of 
+	 * if the string is not empty
+	 * 
+	 * @param s the List of Strings to be printed out to the console.
+	 */
+	public int sumIntegers(List<Integer> numbers){
+		
+		return -1;
+		
+	}
+	
+	/**
+	 * Filters a list of given usernames so that it no longer 
+	 * contains any customers included in the given set.
+	 * 
+	 * @param user	 the List of users to be filtered.
+	 * @param customers the Set of customer names to be removed from the list of users.
+	 * 
+	 * @return the filtered list of users.
+	 */
+	public List<String> filterList(Set<String> customers, List<String> users){
+		
+		return null;
+		
+	}
+	
 
     /**
      * Sorts an array of Strings so that words that contain the letter 'e' appear first
@@ -30,6 +72,19 @@ public class LambdaExercise{
     	return null;
 
     }
+    
+    /**
+     * Takes an array of Strings and filters it with the given Predicate.
+     *
+     * @param words the array of strings to be capitalized.
+     *
+     * @return the array of strings with all words capitalized.
+     */   
+    public List<String> filterWords(ArrayList<String> words, Predicate<String> predicate){
+    	
+    	return null;
+    	
+    }
 
     /**
      * Takes an array of Strings and capitalizes the first letter of each word.
@@ -38,7 +93,7 @@ public class LambdaExercise{
      *
      * @return the array of strings with all words capitalized.
      */   
-    public ArrayList<String> capitalizeAllWords(ArrayList<String> words){
+    public List<String> capitalizeAllWords(ArrayList<String> words){
     	
     	return null;
     	

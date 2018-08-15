@@ -8,7 +8,10 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.function.Predicate;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -50,6 +53,64 @@ public class TestLambdaExercise {
 		System.setErr(originalErr);
 
 	}
+	
+	@Test
+	public void testDisplayIntgers() {
+
+		ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+		
+		ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+		
+		PrintStream originalOut = System.out;
+		
+		PrintStream originalErr = System.err;
+
+		System.setOut(new PrintStream(outContent));
+		
+		System.setErr(new PrintStream(errContent));
+		
+		List<Integer> numbers = new ArrayList<>(Arrays.asList(2, 45, 101, 67, 203, 8));
+		
+		exercise.displayIntegers(numbers);
+		
+		assertEquals("2\n8\n", outContent.toString());
+
+		System.setOut(originalOut);
+		
+		System.setErr(originalErr);
+
+	}
+	
+	@Test
+	public void testSumIntegers() {
+		
+		List<Integer> numbers = new ArrayList<>(Arrays.asList(1,2,3,4,5,6,7,8,9));
+		
+		int expected = 45;
+		
+		int result = exercise.sumIntegers(numbers);
+	
+		assertTrue("Wrong value for sum. Expected: " + expected + " Got:" + result + ".", result == expected);
+
+	}
+	
+	@Test
+	public void testFilterList() {
+		
+		Set<String> customers = new HashSet<>(Arrays.asList("John Johnson", "BF Goodrich", "Glenda Goodwitch"));
+		
+		List<String> users = new ArrayList<>(Arrays.asList("Glenda Goodwitch", "Frank Enearnest", "Joe Blow", "GI Jane", "Les Ismore", "BF Goodrich"));
+		
+		List<String> expected = new ArrayList<>(Arrays.asList("Frank Enearnest", "Joe Blow", "GI Jane", "Les Ismore"));
+		
+		List<String> result = exercise.filterList(customers, users);
+		
+		expected.toArray(new String[expected.size()]);
+		
+		assertTrue("Array does not contain expected users. Expected: " + Arrays.asList(expected) + " Got:" + Arrays.asList(result) + ".", 
+				Arrays.equals(expected.toArray(), result.toArray()));
+
+	}
 
 	@Test
 	public void testSortByLetterE() {
@@ -72,12 +133,29 @@ public class TestLambdaExercise {
 
 		ArrayList<String> expected = new ArrayList<>(Arrays.asList("Hi", "Hello", "Hola", "Bye", "Goodbye", "Adios"));
 
-		ArrayList<String> result = exercise.capitalizeAllWords(words);
+		List<String> result = exercise.capitalizeAllWords(words);
 
 		assertTrue(
 				"Array not capitalized. Expected: " + Arrays.asList(expected) + " Got:" + Arrays.asList(result) + ".",
 				Arrays.equals(expected.toArray(), result.toArray()));
 
+	}
+	
+	@Test
+	public void testFilterWords() {
+		
+		ArrayList<String> words = new ArrayList<>(Arrays.asList("hi", "hello", "hola", "bye", "goodbye", "adios"));
+		
+		Predicate<String> predicate = w -> w != null && w.length() > 4;
+		
+		List<String> expected  = new ArrayList<>(Arrays.asList("hello", "goodbye", "adios"));
+		
+		List<String> result = exercise.filterWords(words, predicate);
+		
+		assertTrue(
+				"Array not capitalized. Expected: " + Arrays.asList(expected) + " Got:" + Arrays.asList(result) + ".",
+				Arrays.equals(result.toArray(), expected.toArray()));
+		
 	}
 
 	@Test
