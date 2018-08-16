@@ -11,9 +11,9 @@ import java.util.stream.Collectors;
 public class LambdaExercise{
 	
 	/**
-	 * Takes a List of strings and displays each element's value to the console
+	 * Takes a List of strings and displays each one to the console.
 	 * 
-	 * @param s the List of Strings to be printed out to the console.
+	 * @param words the List of Strings to be printed out.
 	 */
 	public void displayList(List<String> words){
 		
@@ -22,7 +22,8 @@ public class LambdaExercise{
 	
 	
 	/**
-	 * Accepts a list of integers and displays the number in the console if it is an even number that is below 100.
+	 * Accepts a list of Integers and displays the number in the console 
+	 * if it is an even number that is below 100.
 	 * 
 	 * @param s the List of Strings to be printed out to the console.
 	 */
@@ -32,10 +33,11 @@ public class LambdaExercise{
 	}
 	
 	/**
-	 * Sums the total of all elements of the given array of 
-	 * if the string is not empty
+	 * Sums the given List of Integers
 	 * 
-	 * @param s the List of Strings to be printed out to the console.
+	 * @param numbers the List of Integers to be summed.
+	 * 
+	 * @return the sum as a primitive integer.
 	 */
 	public int sumIntegers(List<Integer> numbers){
 		
@@ -44,10 +46,22 @@ public class LambdaExercise{
 	}
 	
 	/**
-	 * Filters a list of given usernames so that it no longer 
-	 * contains any customers included in the given set.
+	 * Finds the average value for the given array of primitive integers.
 	 * 
-	 * @param user	 the List of users to be filtered.
+	 * @param ints the array of primitive integers
+	 * 
+	 * @return the average given as a Double
+	 */
+	public Double averageInts(int[] ints){
+
+		return null;
+		
+	}
+	
+	/**
+	 * Filters a given list of usernames by removing any that match the given set of customer names.
+	 * 
+	 * @param user the List of users to be filtered.
 	 * @param customers the Set of customer names to be removed from the list of users.
 	 * 
 	 * @return the filtered list of users.
