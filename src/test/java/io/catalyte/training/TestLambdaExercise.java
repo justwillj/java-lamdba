@@ -28,6 +28,19 @@ public class TestLambdaExercise {
 	}
 
 	@Test
+	public void testAverageInts() {
+		
+		int[] ints = {2,4,6,8,10,12};
+		
+		Double expected = new Double(7);
+		
+		Double result = exercise.averageInts(ints);
+		
+		assertEquals("Wrong average. Expected: " + expected + ". Got: " + result, expected, result);	
+		
+	}
+	
+	@Test
 	public void testDisplayList() {
 
 		ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -46,7 +59,7 @@ public class TestLambdaExercise {
 		
 		exercise.displayList(words);
 		
-		assertEquals("hi\nhello\nhola\nbye\ngoodbye\nadios\n", outContent.toString());
+		assertEquals("Did not display expected values. Expected: hi\nhello\nhola\nbye\ngoodbye\nadios\n. Got: " + outContent.toString(),"hi\nhello\nhola\nbye\ngoodbye\nadios\n", outContent.toString());
 
 		System.setOut(originalOut);
 		
@@ -73,7 +86,7 @@ public class TestLambdaExercise {
 		
 		exercise.displayIntegers(numbers);
 		
-		assertEquals("2\n8\n", outContent.toString());
+		assertEquals("Did not display expected values. Expected: 2 8. Got: " + outContent.toString(), "2\n8\n", outContent.toString());
 
 		System.setOut(originalOut);
 		
