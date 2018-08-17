@@ -13,7 +13,7 @@ public class LambdaExercise{
 	/**
 	 * Takes a List of strings and displays each one to the console.
 	 * 
-	 * @param words the List of Strings to be printed out.
+	 * @param words the List of Strings to be displayed.
 	 */
 	public void displayList(List<String> words){
 		
@@ -25,7 +25,7 @@ public class LambdaExercise{
 	 * Accepts a list of Integers and displays the number in the console 
 	 * if it is an even number that is below 100.
 	 * 
-	 * @param s the List of Strings to be printed out to the console.
+	 * @param s the List of Strings to be displayed.
 	 */
 	public void displayIntegers(List<Integer> numbers){
 		
@@ -59,7 +59,8 @@ public class LambdaExercise{
 	}
 	
 	/**
-	 * Filters a given list of usernames by removing any that match the given set of customer names.
+	 * Filters a given list of usernames by removing any that match 
+	 * the given set of customer names.
 	 * 
 	 * @param user the List of users to be filtered.
 	 * @param customers the Set of customer names to be removed from the list of users.
@@ -71,15 +72,14 @@ public class LambdaExercise{
 		return null;
 		
 	}
-	
 
     /**
-     * Sorts an array of Strings so that words that contain the letter 'e' appear first
-     * and all other words appear after.
+     * Sorts an array of Strings so that words that contain the letter 'e' 
+     * appear before all the other words.
      *
      * @param words the array of strings to be sorted.
      *
-     * @return The array of strings with words starting.
+     * @return a sorted array of Strings.
      */
     public String[] sortByLetterE(String[] words){
 
@@ -88,26 +88,26 @@ public class LambdaExercise{
     }
     
     /**
-     * Takes an array of Strings and filters it with the given Predicate.
-     *
-     * @param words the array of strings to be capitalized.
-     *
-     * @return the array of strings with all words capitalized.
-     */   
-    public List<String> filterWords(ArrayList<String> words, Predicate<String> predicate){
-    	
-    	return null;
-    	
-    }
-
-    /**
      * Takes an array of Strings and capitalizes the first letter of each word.
      *
      * @param words the array of strings to be capitalized.
      *
-     * @return the array of strings with all words capitalized.
-     */   
+     * @return a List of capitalized words.
+     */    
     public List<String> capitalizeAllWords(ArrayList<String> words){
+    	
+    	return null;
+    	
+    }
+    
+    /**
+     * Takes an array of Strings and filters it with the given Predicate.
+     *
+     * @param words the array of strings to be capitalized.
+     *
+     * @return a filtered List
+     */     
+    public List<String> filterWords(ArrayList<String> words, Predicate<String> predicate){
     	
     	return null;
     	
@@ -118,7 +118,7 @@ public class LambdaExercise{
      *
      * @param t the List of temperatures to be summarized.
      *
-     * @return a HashMap with the minimum and maximum temperatures.
+     * @return a HashMap containing the minimum and maximum temperatures.
      */   
     public HashMap<String, Integer> summarizeWeatherData(List<Integer> t){
     
