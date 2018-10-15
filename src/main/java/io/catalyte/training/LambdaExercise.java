@@ -25,7 +25,7 @@ public class LambdaExercise{
 	 * Accepts a list of Integers and displays the number in the console 
 	 * if it is an even number that is below 100.
 	 * 
-	 * @param s the List of Strings to be displayed.
+	 * @param numbers the List of Strings to be displayed.
 	 */
 	public void displayIntegers(List<Integer> numbers){
 		
@@ -62,7 +62,7 @@ public class LambdaExercise{
 	 * Filters a given list of usernames by removing any that match 
 	 * the given set of customer names.
 	 * 
-	 * @param user the List of users to be filtered.
+	 * @param users the List of users to be filtered.
 	 * @param customers the Set of customer names to be removed from the list of users.
 	 * 
 	 * @return the filtered list of users.
@@ -104,6 +104,7 @@ public class LambdaExercise{
      * Takes an array of Strings and filters it with the given Predicate.
      *
      * @param words the array of strings to be capitalized.
+     * @param predicate the predicate used to evaluate the given list of words
      *
      * @return a filtered List
      */     
