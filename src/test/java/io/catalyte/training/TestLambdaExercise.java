@@ -1,5 +1,8 @@
 package io.catalyte.training;
 
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -9,178 +12,197 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class TestLambdaExercise {
 
-    private LambdaExercise exercise;
+  private LambdaExercise exercise;
 
-    @Before
-    public void init() {
+  @Before
+  public void init() {
 
-        exercise = new LambdaExercise();
+    exercise = new LambdaExercise();
 
-    }
+  }
 
-    @Test
-    public void testAverageInts() {
+  @Test
+  public void testAverageInts() {
 
-        int[] ints = {2, 4, 6, 8, 10, 12};
+    int[] ints = {2, 4, 6, 8, 10, 12};
 
-        Double expected = 7.0;
+    Double expected = 7.0;
 
-        Double result = exercise.averageInts(ints);
+    Double result = exercise.averageInts(ints);
 
-        assertEquals("Wrong average. Expected: " + expected + ". Got: " + result, expected, result);
+    assertEquals("Wrong average. Expected: " + expected + ". Got: " + result, expected, result);
 
-    }
+  }
 
-    @Test
-    public void testDisplayList() {
+  @Test
+  public void testDisplayList() {
 
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
-        ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+    ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 
-        PrintStream originalOut = System.out;
+    PrintStream originalOut = System.out;
 
-        PrintStream originalErr = System.err;
+    PrintStream originalErr = System.err;
 
-        System.setOut(new PrintStream(outContent));
+    System.setOut(new PrintStream(outContent));
 
-        System.setErr(new PrintStream(errContent));
+    System.setErr(new PrintStream(errContent));
 
-        List<String> words = new ArrayList<>(Arrays.asList("hi", "hello", "hola", "bye", "goodbye", "adios"));
+    List<String> words = new ArrayList<>(
+        Arrays.asList("hi", "hello", "hola", "bye", "goodbye", "adios"));
 
-        exercise.displayList(words);
+    exercise.displayList(words);
 
-        assertEquals("Did not display expected values. Expected: hi\nhello\nhola\nbye\ngoodbye\nadios\n. Got: " + outContent.toString(), "hi\r\nhello\r\nhola\r\nbye\r\ngoodbye\r\nadios\r\n", outContent.toString());
+    assertEquals(
+        "Did not display expected values. Expected: hi\nhello\nhola\nbye\ngoodbye\nadios\n. Got: "
+            + outContent.toString(), "hi\r\nhello\r\nhola\r\nbye\r\ngoodbye\r\nadios\r\n",
+        outContent.toString());
 
-        System.setOut(originalOut);
+    System.setOut(originalOut);
 
-        System.setErr(originalErr);
+    System.setErr(originalErr);
 
-    }
+  }
 
-    @Test
-    public void testDisplayIntgers() {
+  @Test
+  public void testDisplayIntgers() {
 
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
-        ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+    ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 
-        PrintStream originalOut = System.out;
+    PrintStream originalOut = System.out;
 
-        PrintStream originalErr = System.err;
+    PrintStream originalErr = System.err;
 
-        System.setOut(new PrintStream(outContent));
+    System.setOut(new PrintStream(outContent));
 
-        System.setErr(new PrintStream(errContent));
+    System.setErr(new PrintStream(errContent));
 
-        List<Integer> numbers = new ArrayList<>(Arrays.asList(2, 45, 101, 67, 203, 8));
+    List<Integer> numbers = new ArrayList<>(Arrays.asList(2, 45, 101, 67, 203, 8));
 
-        exercise.displayIntegers(numbers);
+    exercise.displayIntegers(numbers);
 
-        assertEquals("Did not display expected values. Expected: 2 8. Got: " + outContent.toString(),
-                "2\r\n8\r\n",
-                outContent.toString());
+    assertEquals("Did not display expected values. Expected: 2 8. Got: " + outContent.toString(),
+        "2\r\n8\r\n",
+        outContent.toString());
 
-        System.setOut(originalOut);
+    System.setOut(originalOut);
 
-        System.setErr(originalErr);
+    System.setErr(originalErr);
 
-    }
+  }
 
-    @Test
-    public void testSumIntegers() {
+  @Test
+  public void testSumIntegers() {
 
-        List<Integer> numbers = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
+    List<Integer> numbers = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
 
-        int expected = 45;
+    int expected = 45;
 
-        int result = exercise.sumIntegers(numbers);
+    int result = exercise.sumIntegers(numbers);
 
-        assertEquals("Wrong value for sum. Expected: " + expected + " Got:" + result + ".", result, expected);
+    assertEquals("Wrong value for sum. Expected: " + expected + " Got:" + result + ".", result,
+        expected);
 
-    }
+  }
 
-    @Test
-    public void testFilterList() {
+  @Test
+  public void testFilterList() {
 
-        Set<String> customers = new HashSet<>(Arrays.asList("John Johnson", "BF Goodrich", "Glenda Goodwitch"));
+    Set<String> customers = new HashSet<>(
+        Arrays.asList("John Johnson", "BF Goodrich", "Glenda Goodwitch"));
 
-        List<String> users = new ArrayList<>(Arrays.asList("Glenda Goodwitch", "Frank Enearnest", "Joe Blow", "GI Jane", "Les Ismore", "BF Goodrich"));
+    List<String> users = new ArrayList<>(Arrays
+        .asList("Glenda Goodwitch", "Frank Enearnest", "Joe Blow", "GI Jane", "Les Ismore",
+            "BF Goodrich"));
 
-        List<String> expected = new ArrayList<>(Arrays.asList("Frank Enearnest", "Joe Blow", "GI Jane", "Les Ismore"));
+    List<String> expected = new ArrayList<>(
+        Arrays.asList("Frank Enearnest", "Joe Blow", "GI Jane", "Les Ismore"));
 
-        List<String> result = exercise.filterList(customers, users);
+    List<String> result = exercise.filterList(customers, users);
 
-        expected.toArray(new String[expected.size()]);
+    expected.toArray(new String[expected.size()]);
 
-        assertArrayEquals("Array does not contain expected users. Expected: " + Arrays.asList(expected) + " Got:" + Arrays.asList(result) + ".", expected.toArray(), result.toArray());
+    assertArrayEquals(
+        "Array does not contain expected users. Expected: " + Arrays.asList(expected) + " Got:"
+            + Arrays.asList(result) + ".", expected.toArray(), result.toArray());
 
-    }
+  }
 
-    @Test
-    public void testSortByLetterE() {
+  @Test
+  public void testSortByLetterE() {
 
-        String[] words = {"hi", "hello", "hola", "bye", "goodbye", "adios"};
+    String[] words = {"hi", "hello", "hola", "bye", "goodbye", "adios"};
 
-        String[] expected = {"hello", "bye", "goodbye", "hi", "hola", "adios"};
+    String[] expected = {"hello", "bye", "goodbye", "hi", "hola", "adios"};
 
-        String[] result = exercise.sortByLetterE(words);
+    String[] result = exercise.sortByLetterE(words);
 
-        assertArrayEquals("Array not in expected order. Expected: " + Arrays.asList(expected) + " Got:" + Arrays.asList(result) + ".", expected, result);
+    assertArrayEquals(
+        "Array not in expected order. Expected: " + Arrays.asList(expected) + " Got:" + Arrays
+            .asList(result) + ".", expected, result);
 
-    }
+  }
 
-    @Test
-    public void testCapitalizeAllWords() {
+  @Test
+  public void testCapitalizeAllWords() {
 
-        ArrayList<String> words = new ArrayList<>(Arrays.asList("hi", "hello", "hola", "bye", "goodbye", "adios"));
+    ArrayList<String> words = new ArrayList<>(
+        Arrays.asList("hi", "hello", "hola", "bye", "goodbye", "adios"));
 
-        ArrayList<String> expected = new ArrayList<>(Arrays.asList("Hi", "Hello", "Hola", "Bye", "Goodbye", "Adios"));
+    ArrayList<String> expected = new ArrayList<>(
+        Arrays.asList("Hi", "Hello", "Hola", "Bye", "Goodbye", "Adios"));
 
-        List<String> result = exercise.capitalizeAllWords(words);
+    List<String> result = exercise.capitalizeAllWords(words);
 
-        assertArrayEquals("Array not capitalized. Expected: " + Arrays.asList(expected) + " Got:" + Arrays.asList(result) + ".", expected.toArray(), result.toArray());
+    assertArrayEquals(
+        "Array not capitalized. Expected: " + Arrays.asList(expected) + " Got:" + Arrays
+            .asList(result) + ".", expected.toArray(), result.toArray());
 
-    }
+  }
 
-    @Test
-    public void testFilterWords() {
+  @Test
+  public void testFilterWords() {
 
-        ArrayList<String> words = new ArrayList<>(Arrays.asList("hi", "hello", "hola", "bye", "goodbye", "adios"));
+    ArrayList<String> words = new ArrayList<>(
+        Arrays.asList("hi", "hello", "hola", "bye", "goodbye", "adios"));
 
-        Predicate<String> predicate = w -> w != null && w.length() > 4;
+    Predicate<String> predicate = w -> w != null && w.length() > 4;
 
-        List<String> expected = new ArrayList<>(Arrays.asList("hello", "goodbye", "adios"));
+    List<String> expected = new ArrayList<>(Arrays.asList("hello", "goodbye", "adios"));
 
-        List<String> result = exercise.filterWords(words, predicate);
+    List<String> result = exercise.filterWords(words, predicate);
 
-        assertArrayEquals("Array not capitalized. Expected: " + Arrays.asList(expected) + " Got:" + Arrays.asList(result) + ".", result.toArray(), expected.toArray());
+    assertArrayEquals(
+        "Array not capitalized. Expected: " + Arrays.asList(expected) + " Got:" + Arrays
+            .asList(result) + ".", result.toArray(), expected.toArray());
 
-    }
+  }
 
-    @Test
-    public void testSummarizeWeatherData() {
+  @Test
+  public void testSummarizeWeatherData() {
 
-        ArrayList<Integer> temps = new ArrayList<>(Arrays.asList(32, 41, 28, 37, 36, 40, 18));
+    ArrayList<Integer> temps = new ArrayList<>(Arrays.asList(32, 41, 28, 37, 36, 40, 18));
 
-        HashMap<String, Integer> expected = new HashMap<>();
+    HashMap<String, Integer> expected = new HashMap<>();
 
-        expected.put("Maximum", 41);
+    expected.put("Maximum", 41);
 
-        expected.put("Minimum", 18);
+    expected.put("Minimum", 18);
 
-        HashMap<String, Integer> result = exercise.summarizeWeatherData(temps);
+    HashMap<String, Integer> result = exercise.summarizeWeatherData(temps);
 
-        assertEquals("Wrong summary information. Expected: Maximum=41, Minimum=18. Got: " + result.entrySet() + ".", expected, result);
+    assertEquals(
+        "Wrong summary information. Expected: Maximum=41, Minimum=18. Got: " + result.entrySet()
+            + ".", expected, result);
 
-    }
+  }
 
 }
