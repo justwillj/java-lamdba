@@ -35,7 +35,7 @@ public class TestLambdaExercise {
 
     Double result = exercise.averageInts(ints);
 
-    assertEquals("Wrong average. Expected: " + expected + ". Got: " + result, expected, result);
+    assertEquals("Wrong average. Expected: " + expected + ". Got: " + result, expected, result, 0.0);
 
   }
 
@@ -108,8 +108,8 @@ public class TestLambdaExercise {
 
     int result = exercise.sumIntegers(numbers);
 
-    assertEquals("Wrong value for sum. Expected: " + expected + " Got:" + result + ".", result,
-        expected);
+    assertEquals("Wrong value for sum. Expected: " + expected + " Got:" + result + ".",
+        expected, result);
 
   }
 
@@ -181,8 +181,8 @@ public class TestLambdaExercise {
     List<String> result = exercise.filterWords(words, predicate);
 
     assertArrayEquals(
-        "Array not capitalized. Expected: " + Arrays.asList(expected) + " Got:" + Arrays
-            .asList(result) + ".", result.toArray(), expected.toArray());
+        "Array not filtered. Expected: " + Arrays.asList(expected) + " Got:" + Arrays
+            .asList(result) + ".", expected.toArray(), result.toArray());
 
   }
 
