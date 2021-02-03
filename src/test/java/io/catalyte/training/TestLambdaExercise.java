@@ -29,13 +29,14 @@ public class TestLambdaExercise {
   @Test
   public void testAverageInts() {
 
-    int[] ints = {2, 4, 6, 8, 10, 12};
+    int[] ints = {4, 5, 6, 8, 10, 12};
 
-    Double expected = 7.0;
+    double expected = 7.5;
 
     Double result = exercise.averageInts(ints);
 
-    assertEquals("Wrong average. Expected: " + expected + ". Got: " + result, expected, result, 0.0);
+    assertEquals("Wrong average. Expected: " + expected + ". Got: " + result, expected, result,
+        0.0);
 
   }
 
@@ -71,7 +72,7 @@ public class TestLambdaExercise {
   }
 
   @Test
-  public void testDisplayIntgers() {
+  public void testDisplayIntegers() {
 
     ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
