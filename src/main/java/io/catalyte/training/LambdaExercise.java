@@ -83,8 +83,12 @@ public class LambdaExercise {
    * @return the filtered list of users.
    */
   public List<String> filterList(Set<String> customers, List<String> users) {
+    //Link that goes over how to use removeIf to check if a condition is met
+    //https://www.geeksforgeeks.org/arraylist-removeif-method-in-java/
 
-    return null;
+    //Checks over the users array and see if customers has the same value and if so remove it
+    users.removeIf(y -> customers.contains(y));
+    return users;
 
   }
 
