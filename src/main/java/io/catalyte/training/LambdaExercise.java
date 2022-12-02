@@ -100,8 +100,14 @@ public class LambdaExercise {
    * @return a sorted array of Strings.
    */
   public String[] sortByLetterE(String[] words) {
+    //Link that helped me with this problem the user Bhaskar used comparator to see if the strings contained the certain
+    //letter
+    //https://stackoverflow.com/questions/63125478/sorting-strings-in-an-array-by-including-a-certain-character-with-lambda-usin
 
-    return null;
+    //Sorts through the array and if the string contains e and if so displays them first
+    Arrays.sort(words,Comparator.comparing(y->y.contains("e")?0:1));
+
+    return words;
 
   }
 
