@@ -145,7 +145,13 @@ public class LambdaExercise {
    */
   public List<String> filterWords(ArrayList<String> words, Predicate<String> predicate) {
 
-    return null;
+    //Goes through the words list
+    List<String> filter = words.stream()
+                //Apply the predicate using filter to only allow the words with the correct properties to go through
+              .filter(predicate)
+                //Apply the filtered words back to the list
+              .collect(Collectors.toList());
+    return filter ;
 
   }
 
