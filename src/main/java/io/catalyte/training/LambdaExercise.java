@@ -162,8 +162,25 @@ public class LambdaExercise {
    * @return a HashMap containing the minimum and maximum temperatures.
    */
   public HashMap<String, Integer> summarizeWeatherData(List<Integer> t) {
+    //Link that helped me with this problem to get the min and max values
+    //https://www.geeksforgeeks.org/stream-min-method-in-java-with-examples/
 
-    return null;
+    //Sets the String value for the min and max
+    String max = "Maximum";
+    String min = "Minimum";
+
+    //Gets the min and max values of the list of integers
+    Integer maxTemp = t.stream().max(Integer::compare).get();
+    Integer minTemp = t.stream().min(Integer::compare).get();
+
+    //Creates a new HashMap to store the data
+    HashMap<String, Integer> mapOfTemp = new HashMap<>();
+
+    //Puts the max and min values inside the new HashMap
+    mapOfTemp.put(max,maxTemp);
+    mapOfTemp.put(min,minTemp);
+
+    return mapOfTemp;
 
   }
 
