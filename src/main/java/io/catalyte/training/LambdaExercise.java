@@ -14,7 +14,8 @@ public class LambdaExercise {
    * @param words the List of Strings to be displayed.
    */
   public void displayList(List<String> words) {
-
+    //Prints all the words in a list in the console
+    words.stream().forEach(word -> System.out.println(word));
   }
 
   /**
