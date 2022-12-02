@@ -2,6 +2,7 @@ package io.catalyte.training;
 
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class LambdaExercise {
@@ -119,8 +120,19 @@ public class LambdaExercise {
    * @return a List of capitalized words.
    */
   public List<String> capitalizeAllWords(ArrayList<String> words) {
+    //Links that helped me with this problem was this YouTube video that explains how to make each word lowercase or upper
+    //https://www.youtube.com/watch?v=lDtOEpOdM6o
+    //The user Paul Boddington had a method to only do the first letter of each word so I was able to use both the youTube
+    //video and his method
+    //https://stackoverflow.com/questions/33352677/convert-first-character-of-string-to-uppercase-using-java-8-lambdas-only
 
-    return null;
+    //Creates a variable to hold the new List
+   List<String> firstLetter = words.stream()
+           //Using the map we are able to apply toUpperCase to the words
+           .map(y->Character.toUpperCase(y.charAt(0))+y.substring(1))
+           //This will return the new list with the first letter being capitalized
+           .collect(Collectors.toList());
+    return firstLetter;
 
   }
 
