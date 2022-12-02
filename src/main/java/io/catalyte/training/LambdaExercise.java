@@ -1,10 +1,8 @@
 package io.catalyte.training;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.IntStream;
 
 public class LambdaExercise {
 
@@ -65,8 +63,15 @@ public class LambdaExercise {
    * @return the average given as a Double
    */
   public Double averageInts(int[] ints) {
+    //Link to another method of getting the average by using intStream average()
+    //https://www.geeksforgeeks.org/intstream-average-in-java-with-examples/
 
-    return null;
+    //Grabs the amount of ints inside the array
+    int count = (int) Arrays.stream(ints).count();
+    //Gets the sum of the array of ints
+    double sum = Arrays.stream(ints).sum();
+
+    return sum/count;
 
   }
 
