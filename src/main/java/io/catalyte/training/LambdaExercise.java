@@ -47,9 +47,15 @@ public class LambdaExercise {
    * @return the sum as a primitive integer.
    */
   public int sumIntegers(List<Integer> numbers) {
+    //Link to the resource that helped me with this problem
+    //https://www.baeldung.com/java-stream-sum
 
-    return -1;
+    //Setting a variable of the sum, so we can return it later
+   int total = numbers.stream()
+           //This will loop through and add each number together
+            .reduce(0,(x,y)->x+y);
 
+   return total;
   }
 
   /**
