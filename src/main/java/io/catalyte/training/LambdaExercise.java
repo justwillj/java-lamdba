@@ -101,8 +101,9 @@ public class LambdaExercise {
    */
   public String[] sortByLetterE(String[] words) {
     //Link that helped me with this problem the user Bhaskar used comparator to see if the strings contained the certain
-    //letter
+    //letter. Also found a link to explain how comparator work in helping us sort out the array
     //https://stackoverflow.com/questions/63125478/sorting-strings-in-an-array-by-including-a-certain-character-with-lambda-usin
+    //https://www.geeksforgeeks.org/comparator-interface-java/
 
     //Sorts through the array and if the string contains e and if so displays them first
     Arrays.sort(words,Comparator.comparing(y->y.contains("e")?0:1));
