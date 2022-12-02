@@ -25,7 +25,19 @@ public class LambdaExercise {
    * @param numbers the List of Strings to be displayed.
    */
   public void displayIntegers(List<Integer> numbers) {
+    //Link that helped me with this problem
+    //https://howtodoinjava.com/java8/stream-if-else-logic/
+    //https://www.geeksforgeeks.org/lambda-expressions-java-8/
 
+    //Checks to make sure its even
+    Predicate<Integer> isEven = i -> i % 2 == 0;
+    //Checks to see if it is greater then 100
+    Predicate<Integer> isGreaterThen100 = i -> i < 100;
+
+      numbers.stream()
+              .filter(isGreaterThen100)
+              .filter(isEven)
+              .forEach(System.out::println);
   }
 
   /**
